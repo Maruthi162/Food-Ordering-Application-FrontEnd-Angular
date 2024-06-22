@@ -1,0 +1,26 @@
+<div style="display: flex; " *ngIf="dataLoaded">
+    <mat-card class="category-card"  *ngFor="let category of restaurantCategories" style="margin: 10px; width: 200px; background-color: bisque;" (click)="redirectToMenu(category.categoryId)">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{category.name}}</mat-card-title>
+            <mat-card-subtitle>{{category.description}}</mat-card-subtitle>
+            
+          </mat-card-title-group>
+        </mat-card-header>
+        <div style="max-height: 200px; overflow: hidden;">
+            <img mat-card-sm-image style="width: 100%; height: auto;" src="{{category.imgUrl}}" >
+        </div>
+        
+        <mat-card-actions>
+            <div class="example-button-container">
+                <button mat-icon-button style="width: 50px; height: 50px;">
+                  <mat-icon>favorite</mat-icon>
+                </button>
+            </div>
+            <button mat-button>
+                <mat-icon>share</mat-icon>
+            </button>
+         </mat-card-actions>
+      </mat-card>
+  </div>
+

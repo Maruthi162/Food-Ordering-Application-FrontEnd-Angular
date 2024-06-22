@@ -1,0 +1,10 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  button.mat-icon-button {
+    border: none;
+  }
+  button{
+    border: 0cap;
+  }
+  

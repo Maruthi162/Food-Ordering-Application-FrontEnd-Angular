@@ -1,0 +1,35 @@
+<div class="dialog-component" style="background-image: url('https://live.staticflickr.com/3436/3210041140_f2a438ed52_b.jpg');">
+    <div class="container grid-box">
+        <div class="row grid-box">
+            <!-- Image and Item Name -->
+            <div class="col-md-6 item-container">
+                <h1>{{ data.name }}</h1>
+                <div class="img-wrapper">
+                    <img [src]="data.img" class="img-fluid" alt="{{ data.name }}">
+                </div>
+            </div>
+
+            <!-- Item Details -->
+            <div class="col-md-4 grid-box details-container">
+                <h5>Item Details:</h5>
+                <p><strong>Description:</strong> {{ data.description }}</p>
+                <p><strong>Price:</strong> <strong style="color: #5e57e1; font-size: medium; background-color: white;">{{ data.price }} &#8377;</strong></p>
+                <p><strong>Availability:</strong> {{ data.availability }}</p>
+
+                <h5>Restaurant Details:</h5>
+                <p><strong>Name:</strong> {{ data.restaurant.name }}</p>
+                <p><strong>Description:</strong> {{ data.restaurant.description }}</p>
+                <p><strong>Contact:</strong> {{ data.restaurant.phoneNum }}</p>
+
+                <h5>Category Details:</h5>
+                <p><strong>Name:</strong> {{ data.category.name }}</p>
+                <p><strong>Description:</strong> {{ data.category.description }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div mat-dialog-actions class="grid-box">
+        <button mat-button (click)="onClose()" style="background-color: rgb(239, 114, 114);">Close</button>
+        <button mat-raised-button color="primary">Add to Cart</button>
+    </div>
+</div>

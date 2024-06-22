@@ -1,0 +1,47 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
+
+<div style="display: flex; justify-content: center; padding-top: 20px;">
+    <input matInput class="form-control mr-sm-2" type="text" placeholder="Search menu by name" aria-label="Search" style="padding-bottom: 15px; width: 50%;" [(ngModel)]="searchQuery" (input)="filterMenuItems()">
+</div>
+
+<div class="menu-container">
+    <mat-card class="menu-card" *ngFor="let menuItem of filteredMenu">
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-title>{{menuItem.name}}</mat-card-title>
+                <mat-card-subtitle>{{menuItem.description}}</mat-card-subtitle>
+            </mat-card-title-group>
+        </mat-card-header>
+        <div class="image-container"  (click)="openDialog(menuItem)">
+            <img mat-card-sm-image src="{{menuItem.img}}" alt="{{menuItem.name}}">
+        </div>
+        <mat-card-content>
+            <div class="price-details">
+                <div class="original-price">
+                    Price: <strong class="strikethrough" style="background-color: white;">500 &#8377;</strong>
+                </div>
+                <div class="discounted-price">
+                    Price After Discount: <strong style="color: #5e57e1; font-size: medium; background-color: white;">{{menuItem.price}} &#8377;</strong>
+                </div>
+                <h5>Availability: {{menuItem.availability}}</h5>
+                <h6>Category: {{menuItem.category.name}}</h6>
+                <h6>Restaurant: {{menuItem.restaurant.name}}</h6>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-icon-button (click)="toggleFavorite(menuItem)">
+                <mat-icon class="fav" style="color: #ec1111;">{{isFavorite(menuItem) ? 'favorite' : 'favorite_border'}}</mat-icon>
+            </button>
+            <button mat-raised-button color="primary" *ngIf="!cartItems[menuItem.menuItemId]" (click)="openDialog(menuItem)">
+                Add to Cart
+              </button>
+              <button mat-raised-button color="accent" *ngIf="cartItems[menuItem.menuItemId]" (click)="goToCart()">
+                Go to Cart
+              </button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+
+
+

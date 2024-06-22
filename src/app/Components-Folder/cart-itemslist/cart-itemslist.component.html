@@ -1,0 +1,64 @@
+
+
+<!-- <div style="display: flex; flex-wrap: wrap;">
+    <mat-card *ngFor="let cartItem of cartItems" style="display: flex; margin: 10px; width: 100%;">
+      <div style="display: flex; flex-direction: column; align-items: center; width: 30%;">
+        <div *ngIf="cartItem?.menuItemId" style="width: 100%; max-height: 200px; overflow: hidden;" (click)="openDialog(cartItem.menuItem)">
+          <img mat-card-sm-image style="width: 100%; height: auto;" [src]="cartItem?.menuItem?.img">
+        </div>
+        <div style="display: flex; align-items: center; margin-top: 10px;">
+          <button mat-mini-button (click)="decreaseQuantity(cartItem)">-</button>
+          <span style="margin: 0 10px;">{{cartItem.quantity}}</span>
+          <button mat-mini-button (click)="increaseQuantity(cartItem)">+</button>
+        </div>
+      </div>
+      <mat-card-content style="width: 70%;">
+        <h2>Name: {{cartItem.menuItem.name}}</h2>
+        <h3>Price: {{cartItem.menuItem.price}}</h3>
+        <h3>Quantity: {{cartItem.quantity}}</h3>
+      </mat-card-content>
+      <mat-card-actions style="width: 100%; justify-content: flex-end;">
+        <div *ngIf="cartItem?.menuItemId">
+          <button mat-raised-button color="primary" (click)="removeFromCart(cartItem.cartItemId)">Remove From Cart</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" >Place Order</button>
+  </div> -->
+<h1 style="color: rgb(234, 81, 16); padding-left: 40%; padding-top: 15px;">Your Cart</h1>
+<h2 style="color: steelblue; text-align: center; font-size: medium; font-style: italic;">Total Price: {{calculateTotalPrice()}} &#8377;</h2>
+  <mat-card class="home-card" *ngFor="let cartItem of cartItems" >
+    <mat-card-content class="home-card-content">
+      
+      <img mat-card-image
+        src={{cartItem.menuItem.img}}
+        alt="Photo of a Shiba Inu">
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+            <button mat-mini-button (click)="decreaseQuantity(cartItem)">-</button>
+            <span style="margin: 0 10px;">{{cartItem.quantity}}</span>
+            <button mat-mini-button (click)="increaseQuantity(cartItem)">+</button>
+          </div>  
+      <div>
+        <div>{{cartItem.menuItem.name}}</div>
+        <div>
+            <strong style="color: #5e57e1; font-size: medium; background-color: white;">{{cartItem.menuItem.price}} &#8377;</strong>
+        </div>
+        <div>{{cartItem.quantity}}</div>
+        <div>
+            <span>Sum=</span><strong>{{cartItem.quantity * cartItem.menuItem.price}} &#8377;</strong>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions style="width: 100%; justify-content: flex-end;">
+        <div *ngIf="cartItem?.menuItemId">
+          <button mat-raised-button color="warn" (click)="removeFromCart(cartItem.cartItemId)">Remove From Cart</button>
+        </div>
+    </mat-card-actions>
+</mat-card>
+<div>
+    
+    <button mat-raised-button color="primary" >Place Order</button>
+  </div>
+  

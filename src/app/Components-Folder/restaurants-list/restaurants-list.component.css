@@ -1,0 +1,15 @@
+mat-grid-tile {
+    background: lightblue;
+  }
+  .restaurant-card{
+    transition: transform 0.3s ease;
+  }
+
+  .restaurant-card:hover {
+    transform: scale(1.05);
+  }
+  .favorite .mat-icon{
+    color: red;
+  }
+  
+ 

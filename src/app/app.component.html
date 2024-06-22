@@ -1,0 +1,88 @@
+<!--Getting favRestCount from favoriteRest component-->
+<div *ngIf="authService.isCustomerLoggedIn">
+  <mat-toolbar color="primary" class="mat-elevation-z8">
+
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button mat-icon-button (click)="backHome()">
+      <mat-icon>home</mat-icon>
+    </button>
+    <span>Flash Foods</span>
+    <span class="example-spacer"></span>
+
+    <button mat-button routerLink="/GetAllRestaurants" (click)="showOther()">
+      <mat-icon>restaurant</mat-icon>
+      <span>Restaurants</span>
+    </button>
+    <button mat-button routerLink="/getAllMenuItems" (click)="showOther()">
+      <mat-icon>restaurant_menu</mat-icon>
+      <span>Menu</span>
+    </button>
+
+    <button mat-button routerLink="/GetAllCategories" (click)="showOther()">
+      <mat-icon>now_widgets</mat-icon>
+      <span>Categories</span>
+    </button>
+    <button mat-button routerLink="/get-cart-items" (click)="showOther()">
+      <mat-icon matBadge="15" matBadgeColor="warn" >shopping_cart</mat-icon>
+    </button>
+
+    <button mat-button [matMenuTriggerFor]="belowMenu"><mat-icon>account_circle</mat-icon></button>
+    <mat-menu #belowMenu="matMenu" yPosition="below" class="menu-primary">
+      <button mat-menu-item [matBadge]="favRestCount" style="background-color: aquamarine;"
+        routerLink="/Get-Fav-Restaurants" (click)="showOther()">Liked
+        Restaurants</button>
+      <button mat-menu-item style="background-color: aquamarine;" routerLink="/getFavmenuItems" (click)="showOther()">Liked Menus</button>
+      <button mat-menu-item style="background-color: aquamarine;">My Orders</button>
+      <button mat-menu-item style="background-color: aquamarine;">My Reviews</button>
+      <button mat-menu-item style="background-color: aquamarine;"
+        routerLink="/login"><mat-icon>logout</mat-icon>Logout</button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <div *ngIf="!showOtherComponent" style="overflow-x: auto;">
+    <h1>Restaurants</h1>
+    <app-restaurants-list (imgClick)="showOther()"></app-restaurants-list>
+  </div>
+  <div *ngIf="!showOtherComponent" style="overflow-x: auto;">
+    <h1>Categories</h1>
+    <app-category-list (imgClick)="showOther()"></app-category-list>
+  </div>
+  <div *ngIf="!showOtherComponent" style="overflow-x: auto;">
+    <h1>Menu Items</h1>
+    <app-menu-list></app-menu-list>
+  </div>
+</div>
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <input type="search" id="search" class="form-control shadow-sm" placeholder="Search">
+  </div>
+</div>
+
+<nav class="navbar navbar-dark navbar-expand bg-dark py-3 position-relative" *ngIf="authService.isAdminLoggedIn">
+  <div class="container">
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a class="nav-link active" href="#" routerLink="/rest-orders">Orders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Second Item</a>
+      </li>
+    </ul>
+    <div class="d-block">
+      <button class="btn btn-light" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight">🔎</button>
+      <a class="btn btn-primary" role="button" href="#">Logout</a>
+    </div>
+  </div>
+</nav>
+
+
+<router-outlet></router-outlet>

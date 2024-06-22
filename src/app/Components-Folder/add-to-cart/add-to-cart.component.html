@@ -1,0 +1,20 @@
+<h1 style="color: rgb(234, 81, 16); padding-left: 40%; padding-top: 15px;">Add Cart</h1>
+  <mat-card class="home-card" >
+    <mat-card-content class="home-card-content">
+      
+      <img mat-card-image
+        src={{data.img}}
+        alt="Photo of a Shiba Inu">
+        <div style="display: flex; justify-content: center; margin-top: 10px;">
+           <input type="number" placeholder="enter quantity"[(ngModel)]="quantity">
+          </div>  
+      <div>
+        <div>{{data.name}}</div>
+        <div>{{data.price}}</div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions style="width: 100%; justify-content: flex-end;">
+        <div *ngIf="data">
+          <button mat-raised-button color="warn" (click)="addToCart(data)">Add to Cart</button>
+        </div>
+    </mat-card-actions>

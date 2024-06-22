@@ -1,0 +1,41 @@
+
+
+<div style="display: flex; justify-content: center;">
+    <input matInput class="form-control mr-sm-2" type="text" placeholder="Search Favourite restaurants" aria-label="Search" style="padding-bottom: 15px; width: 50%; " [(ngModel)]="searchQuery" (input)="filterRestaurants()">
+</div>
+    
+ 
+<h1 style="color: rgba(243, 22, 22, 0.911); font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">My Favourite Restaurants</h1>
+  
+  <!-- Display the filtered list of restaurants -->
+  <div style="display: flex;">
+    <mat-card class="restaurant-card"  *ngFor="let restaurant of filteredRests" style="margin: 10px; width: 200px; background-color: bisque;">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{restaurant.name}}</mat-card-title>
+            <mat-card-subtitle>{{restaurant.description}}</mat-card-subtitle>
+            
+          </mat-card-title-group>
+        </mat-card-header>
+        <div style="max-height: 200px; overflow: hidden;" (click)="RedirectToRestCategories(restaurant.restaurantId)">
+            <img mat-card-sm-image style="width: 100%; height: auto;" src="{{restaurant.imgurl}}" >
+        </div>
+        <mat-card-content>
+          <p>{{restaurant.owner}}</p>
+          <p>Contact: {{restaurant.phoneNum}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="example-button-container">
+                <button mat-icon-button style="width: 50px; height: 50px;" (click)="RemoveFromFavRests(restaurant.restaurantId,this.userId)">
+                  <mat-icon style="color: red;">favorite</mat-icon>
+                </button>
+            </div>
+            <button mat-button>
+                <mat-icon>share</mat-icon>
+            
+            </button>
+         </mat-card-actions>
+      </mat-card>
+  </div>
+
+  

@@ -1,0 +1,34 @@
+
+
+<div style="display: flex; justify-content: center;">
+    <input matInput class="form-control mr-sm-2" type="text" placeholder="Search Categories" aria-label="Search" style="padding-bottom: 15px; width: 50%; " [(ngModel)]="searchQuery" (input)="filterCategories()">
+</div>
+    
+ 
+  <div style="display: flex; ">
+    <mat-card class="category-card"  *ngFor="let category of filteredCats" style="margin: 10px; width: 200px; background-color: bisque;" (click)="redirectToMenu(category.categoryId)">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{category.name}}</mat-card-title>
+            <mat-card-subtitle>{{category.description}}</mat-card-subtitle>
+            
+          </mat-card-title-group>
+        </mat-card-header>
+        <div style="max-height: 200px; overflow: hidden;" (click)="OnImageClick()">
+            <img mat-card-sm-image style="width: 100%; height: auto;" src="{{category.imgUrl}}" >
+        </div>
+        
+        <mat-card-actions>
+            <div class="example-button-container">
+                <button mat-icon-button style="width: 50px; height: 50px;">
+                  <mat-icon>favorite</mat-icon>
+                </button>
+            </div>
+            <button mat-button>
+                <mat-icon>share</mat-icon>
+            </button>
+         </mat-card-actions>
+      </mat-card>
+  </div>
+
+  
