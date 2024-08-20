@@ -1,4 +1,4 @@
-.login-container {
+/* .login-container {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -46,4 +46,146 @@ button:hover {
 .error-message {
     color: #ff0000;
     margin-top: 10px;
+} */
+
+body.login_page{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(207, 120, 190);
+    display: flex;
+    align-items: center;
+    align-content: center;    
+   
+}
+
+.container{
+    width: 80%;
+    height: 80vh;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(247, 189, 248);
+    display: flex;
+    gap: 5px;
+    border-radius: 10px;
+    
+}
+
+.login_container{
+    
+    padding: 20px;
+    height: 500px;
+    width: 400px;
+   text-align: center;
+   align-content: center;
+    background-color: rgb(249, 249, 255);
+    border: 3px solid rgb(66, 155, 232);
+    border-radius: 30px;
+    
+}
+.vertical-line {
+    width: 3px; /* Thickness of the line */
+    background-color: #f1f4f3; /* Color of the line */
+    height: 100%; /* Full height of the container */
+    align-self: stretch; /* Makes sure it stretches to the container's height */
+}
+.img-container{
+    background-color: bisque;
+    padding: 10px;
+    flex: 1;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    align-items: center;
+    justify-content: center;
+}
+.img-container img{
+    max-width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+#email{
+    border-left: 6px solid rgb(202, 64, 214);
+    border-radius: 3px;
+    width: 70%;
+    height: 30px;
+}
+#email:corner-present{
+    background-color: rgb(202, 64, 214);
+}
+#password{
+    border-left: 6px solid rgb(202, 64, 214);
+    border-radius: 3px;
+    width: 70%;
+    height: 30px;
+}
+#reset_button{
+    margin-right: 30px;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(249, 145, 249);
+}
+#reset_button:hover{
+    background-color: red;
+}
+#login_button{
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    background-color: rgb(249, 145, 249);
+}
+#login_button:hover{
+    background-color: rgb(34, 18, 211);
+}
+.button_container{
+    text-align: center;
+    padding-top: 30px;
+    padding-left: 90px;
+    padding-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+#title_container{
+    width: 100px;
+    text-align: center;
+    width: 100%;
+    
+}
+#title{
+   color:rgb(118, 59, 245);
+   font-size: 25px;
+
+}
+.fingerprint{
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+    color: #b00c87;
+}
+.fingerprint:hover{
+    color: rgb(23, 137, 237);
+}
+.input-field{
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.input-field input{
+    width: 100%;
+    
+    padding: 10px 10px 10px 40px;
+    border: 2px solid rgb(15, 15, 15);
+    
+}
+.input-field mat-icon{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    
+    color: #b00c87;
+    font-size: 25px;
+
 }

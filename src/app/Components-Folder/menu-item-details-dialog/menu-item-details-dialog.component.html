@@ -30,6 +30,11 @@
 
     <div mat-dialog-actions class="grid-box">
         <button mat-button (click)="onClose()" style="background-color: rgb(239, 114, 114);">Close</button>
-        <button mat-raised-button color="primary">Add to Cart</button>
+        <button mat-raised-button color="primary" *ngIf="!cartItems[data.menuItemId]" (click)="openCartDialog(data)">
+            Add to Cart
+          </button>
+          <button mat-raised-button color="accent" *ngIf="cartItems[data.menuItemId]" (click)="goToCart()">
+            Go to Cart
+          </button>
     </div>
 </div>

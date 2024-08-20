@@ -1,39 +1,38 @@
-
-<div style="display: flex; justify-content: center;">
-    <input matInput class="form-control mr-sm-2" type="text" placeholder="Search restaurants" aria-label="Search" style="padding-bottom: 15px; width: 50%; " [(ngModel)]="searchQuery" (input)="filterRestaurants()">
+<div style="display: flex; justify-content: center; margin-bottom: 20px;">
+  <input matInput class="form-control mr-sm-2" type="text" placeholder="Search restaurants" aria-label="Search" style="padding-bottom: 15px; width: 50%;" [(ngModel)]="searchQuery" (input)="filterRestaurants()">
 </div>
+
+<!-- Display the filtered list of restaurants -->
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
+  <mat-card class="restaurant-card" *ngFor="let restaurant of filteredRestList" style="margin: 10px; width: 200px; background-color: bisque; display: flex; flex-direction: column; height: 400px;">
     
- 
-  
-  <!-- Display the filtered list of restaurants -->
-  <div style="display: flex;" >
-    <mat-card class="restaurant-card"  *ngFor="let restaurant of filteredRestList" style="margin: 10px; width: 200px; background-color: bisque;">
-        <mat-card-header>
-          <mat-card-title-group>
-            <mat-card-title>{{restaurant.name}}</mat-card-title>
-            <mat-card-subtitle>{{restaurant.description}}</mat-card-subtitle>
-            
-          </mat-card-title-group>
-        </mat-card-header>
-        <div style="max-height: 200px; overflow: hidden;" (click)="RedirectToRestCategories(restaurant.restaurantId); OnImageClick()">
-          <img mat-card-sm-image style="width: 100%; height: auto;" src="{{restaurant.imgurl}}" >
-        </div>
-        <mat-card-content style="max-height: 100px; overflow: hidden;">
-          <p>{{restaurant.owner}}</p>
-          <p>Contact: {{restaurant.phoneNum}}</p>
-        </mat-card-content>
-        <mat-card-actions>
-            <div class="example-button-container">
+    <!-- Header Section -->
+    <mat-card-header style="height: 90px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+      <div style="width: 100%;">
+        <mat-card-title style="font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{restaurant.name}}</mat-card-title>
+        <mat-card-subtitle style="font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{restaurant.description}}</mat-card-subtitle>
+      </div>
+    </mat-card-header>
+    
+    <!-- Image Section -->
+    <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 8px;" (click)="RedirectToRestCategories(restaurant.restaurantId); OnImageClick()">
+      <img mat-card-sm-image [src]="restaurant.imgurl" alt="Restaurant image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" loading="lazy">
+    </div>
 
-                <button mat-icon-button style="width: 50px; height: 50px;" (click)="toggleFavorite(restaurant)">
-                  <mat-icon style="color: red;" class="fav">{{isFavorite(restaurant)? 'favorite':'favorite_border'}}</mat-icon>
-                </button>
-            </div>
-            <button mat-button>
-              <mat-icon>share</mat-icon>
-            </button>
-         </mat-card-actions>
-      </mat-card>
-  </div>
-
-  
+    <!-- Content Section -->
+    <mat-card-content style="flex-grow: 1; padding: 10px; overflow: hidden; text-overflow: ellipsis;">
+      <p style="margin: 0; font-weight: bold; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Owner: {{restaurant.owner}}</p>
+      <p style="margin: 0; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Contact: {{restaurant.phoneNum}}</p>
+    </mat-card-content>
+    
+    <!-- Actions Section -->
+    <mat-card-actions style="display: flex; justify-content: space-between; padding: 10px; height: 50px;">
+      <button mat-icon-button (click)="toggleFavorite(restaurant)">
+        <mat-icon style="color: red;" class="fav">{{isFavorite(restaurant) ? 'favorite' : 'favorite_border'}}</mat-icon>
+      </button>
+      <button mat-button>
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

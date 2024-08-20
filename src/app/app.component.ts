@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { RegisterComponentComponent } from './Components-Folder/register-component/register-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthServiceService } from './Services-Folder/auth-service.service';
@@ -34,7 +34,7 @@ export class AppComponent {
   favRestCount: number = 0;
   showOtherComponent: boolean = false;
 
-  constructor(public authService: AuthServiceService) { }
+  constructor(public authService: AuthServiceService, public router:Router) { }
   title = 'FlashFoods-Angular';
   // Method to toggle the flag and show the other component
   showOther() {
@@ -42,5 +42,10 @@ export class AppComponent {
   }
   backHome() {
     this.showOtherComponent = false;
+  }
+  logout() {
+    this.authService.logOut();  // Clear user session data
+    this.showOtherComponent = false;  // Ensure other components are hidden
+    this.router.navigate(['/login']);  // Navigate to login page
   }
 }

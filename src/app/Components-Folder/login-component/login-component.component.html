@@ -1,4 +1,4 @@
-<div class="login-container">
+<!-- <div class="login-container">
     <h2>Login</h2>
     <form (ngSubmit)="login()">
       <div class="form-group">
@@ -16,4 +16,45 @@
     <div>
       <a class="nav-link active" routerLink="/register">Sign Up</a>
   </div>
-</div>
+</div> -->
+
+<body class="login_page">
+  <div class="container">
+    <div class="login_container">
+      <div class="title_container">
+        <mat-icon class="fingerprint">fingerprint</mat-icon>
+        <h1 Id="title">Login</h1>
+      </div>
+      <form (ngSubmit)="login()">
+        <div class="input_fields">
+          <div class="input-field">
+            <label for="email" id="email_label">Email: </label><br>
+            <mat-icon>account_circle</mat-icon>
+            <input type="email" id="email" name="email" [(ngModel)]="credentials.email" placeholder="enter your email" required><br>
+          </div>
+          <div class="input-field">
+            <label for="password" id="password_label">Password: </label><br>
+            <mat-icon>lock_outline</mat-icon>
+            <input type="password" id="password" name="Password" [(ngModel)]="credentials.password" placeholder="enter your password" required><br>
+          </div>
+          
+          
+        </div>
+        <div class="button_container">
+          <button type="reset" id="reset_button">Reset</button>
+          <button type="submit" id="login_button" (click)="login()"><span><mat-icon>login</mat-icon></span>Login</button>
+        </div>
+        
+      </form>
+      <div>
+        <a class="nav-link active" routerLink="/register">Sign Up</a>
+      </div>
+      
+    </div>
+    <div class="vertical-line"></div>
+    <div class="img-container">
+      <img src="https://d3l9a8mvoa6cl8.cloudfront.net/wp-content/uploads/sites/3/2020/04/03173944/online-food-delivery-industry-min.jpg" alt="food delivery image">
+    </div>
+  </div>
+  
+</body>
