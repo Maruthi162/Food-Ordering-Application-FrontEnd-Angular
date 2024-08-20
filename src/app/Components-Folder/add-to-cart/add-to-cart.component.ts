@@ -42,7 +42,7 @@ export class AddToCartComponent {
           console.log("item added to cart", response);
           
           this.dialogRef.close();
-          this.router.navigate(['/get-cart-items']);
+          // this.router.navigate(['/get-cart-items']);
       },error=>{
         console.log("error in adding to cart", error);
       }

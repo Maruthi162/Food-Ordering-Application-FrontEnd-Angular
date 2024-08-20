@@ -134,6 +134,7 @@ checkCartItems(): void {
     dialogRef.afterClosed().subscribe(result=>{
       console.log("dialog has been closed ", result);
       this.checkCartItems(); // Refresh the cart items after closing the dialog
+      this.GetAllMenuItems(); // refresh the menu list after added to cart to update the go to cart button
     });
   }
 
@@ -141,6 +142,8 @@ checkCartItems(): void {
 
   goToCart(): void {
     this.router.navigate(['/get-cart-items']);
+  
+    
   }
  
 }

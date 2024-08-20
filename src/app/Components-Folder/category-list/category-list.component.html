@@ -15,7 +15,7 @@
           </mat-card-title-group>
         </mat-card-header>
         <div style="max-height: 200px; overflow: hidden;" (click)="OnImageClick()">
-            <img mat-card-sm-image style="width: 100%; height: auto;" src="{{category.imgUrl}}" >
+            <img mat-card-sm-image style="width: 100%; height: auto;" src="{{category.imgUrl}}" loading="lazy">
         </div>
         
         <mat-card-actions>

@@ -94,7 +94,7 @@ export class MenuItemsByCategoryComponent {
     }
     openDialog(menuItem:MenuItem):void{
       const dialogRef=this.dialog.open(MenuItemDetailsDialogComponent, {
-        width:'300px',
+        width:'700px',
         data:menuItem
       });
       dialogRef.afterClosed().subscribe(result=>{
@@ -123,7 +123,8 @@ export class MenuItemsByCategoryComponent {
       });
       dialogRef.afterClosed().subscribe(result=>{
         console.log("dialog has been closed ", result);
-        this.checkCartItems();
+        this.checkCartItems(); //rewfresh the cart items
+        this.getMenuItemsBycategoryId(this.catId); // refersh the catogory items
       });
     }
 

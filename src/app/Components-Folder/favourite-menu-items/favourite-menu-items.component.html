@@ -35,7 +35,7 @@
                     <mat-icon style="color: red;">favorite</mat-icon>
                 </button>
             </div>
-            <button mat-raised-button color="primary" *ngIf="!cartItems[menuItem.menuItemId]" (click)="openDialog(menuItem)">
+            <button mat-raised-button color="primary" *ngIf="!cartItems[menuItem.menuItemId]" (click)="openCartDialog(menuItem)">
               Add to Cart
             </button>
             <button mat-raised-button color="accent" *ngIf="cartItems[menuItem.menuItemId]" (click)="goToCart()">
