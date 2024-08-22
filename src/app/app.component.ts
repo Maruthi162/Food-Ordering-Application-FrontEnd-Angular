@@ -10,6 +10,7 @@ import { TestingComponent } from "./Components-Folder/testing/testing.component"
 import { FavoriteRestaurantsComponent } from './Components-Folder/favorite-restaurants/favorite-restaurants.component';
 import { CategoryListComponent } from './Components-Folder/category-list/category-list.component';
 import { MenuListComponent } from './Components-Folder/menu-list/menu-list.component';
+import { CartServicesService } from './Services-Folder/cart-services.service';
 
 @Component({
   selector: 'app-root',
@@ -33,9 +34,16 @@ export class AppComponent {
 
   favRestCount: number = 0;
   showOtherComponent: boolean = false;
+  cartCount:number=0;
 
-  constructor(public authService: AuthServiceService, public router:Router) { }
+  constructor(public authService: AuthServiceService, public router:Router, public cartServ:CartServicesService) {
+      // Subscribe to cart count changes
+      this.cartServ.getCartCount().subscribe(count => {
+      this.cartCount = count;
+      });
+   }
   title = 'FlashFoods-Angular';
+  
   // Method to toggle the flag and show the other component
   showOther() {
     this.showOtherComponent = true;
