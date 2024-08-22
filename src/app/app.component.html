@@ -25,7 +25,7 @@
       <span>Categories</span>
     </button>
     <button mat-button routerLink="/get-cart-items" (click)="showOther()">
-      <mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon>
+      <mat-icon matBadge="{{cartCount}}" matBadgeColor="warn">shopping_cart</mat-icon>
     </button>
 
     <button mat-button [matMenuTriggerFor]="belowMenu"><mat-icon>account_circle</mat-icon></button>
@@ -41,7 +41,9 @@
         (click)="logout()"><mat-icon>logout</mat-icon>Logout</button>
     </mat-menu>
   </mat-toolbar>
-
+  <div class="offers">
+    <h1>Offers</h1>
+  </div>
   <div *ngIf="!showOtherComponent" style="overflow-x: auto;">
     <h1>Restaurants</h1>
     <app-restaurants-list (imgClick)="showOther()"></app-restaurants-list>
